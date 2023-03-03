@@ -1,0 +1,56 @@
+<section class="form-component">
+  <form (ngSubmit)="submitForm()">
+    <mat-form-field class="example-full-width">
+      <mat-label>User Name</mat-label>
+      <input
+        type="text"
+        matInput
+        placeholder="Ex. Pappu"
+        id="name"
+        name="name"
+        [(ngModel)]="name"
+        required
+      />
+    </mat-form-field>
+
+    <br />
+    <button
+      type="submit"
+      mat-flat-button
+      color="primary"
+      [disabled]="isFormInvalid()"
+    >
+      Check Fun
+    </button>
+  </form>
+</section>
+
+<section class="form-component" *ngIf="result">
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ result.name }}</td>
+        <td>{{ result.age }}</td>
+        <td>{{ result.gender }}</td>
+        <td>{{ result.country }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">
+          <button mat-flat-button color="primary" (click)="reset()">
+            Try Other
+          </button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</section>
